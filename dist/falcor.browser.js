@@ -1303,6 +1303,11 @@ function cloneBoxedValue(boxedValue) {
 function _copyCache(node, out, fromKey) {
     // copy and return
 
+    // Fix call stack size error
+    if (typeof node !== "object") {
+      return;
+    }
+
     Object.
         keys(node).
         filter(function(k) {
